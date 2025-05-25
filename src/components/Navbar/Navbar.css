@@ -31,12 +31,18 @@
     align-items: center;
 }
 
-.signup-btn{
+.signup-btn {
     width: 60px;
     height: 24px;
     background-color:#e50914 ;
-    color: #fff;
     border-radius: 4px;
     border: none;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.login-btn{
+    text-decoration: none;
+    color: #fff;
     font-size: 10px;
 }

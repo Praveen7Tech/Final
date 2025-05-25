@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./Navbar.css"
 import React from 'react'
 
@@ -13,7 +14,7 @@ const Navbar = () => {
                 <path d="M7 10l5 5 5-5H7z"/>
             </svg>
             </button>
-        <button className='signup-btn'>Sign up</button>
+        <button className='signup-btn'><Link to="/login" className="login-btn">Sign up</Link></button>
       </div>
     </div>
   )

@@ -1,3 +1,4 @@
+import { Logout } from "../../utils/firebase"
 import "./Navbar.css"
 import React from 'react'
 
@@ -9,7 +10,10 @@ const NavbarHome = () => {
       </div>
       <div className="navbar-right">
         
-        <button className='signup-btn'>Log out</button>
+        <button className='signup-btn' 
+        onClick={()=>{Logout()}}>
+          Log out
+        </button>
       </div>
     </div>
   )

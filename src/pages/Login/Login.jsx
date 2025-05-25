@@ -20,10 +20,26 @@ const Login = () => {
         setEmailError(emailMessage)
         setPasswordError(paswordMessage)
         setNameError(nameMessage)
+
+        if(emailMessage && paswordMessage && nameMessage) return;
+
+        userAuth(nameValue,emailValue, passValue)
     }
+
+    const userAuth = async(nameValue,emailValue, passValue)=>{
+      if(!isSign){
+        console.log("sign up",nameValue,emailValue,passValue)
+        await SignUp(nameValue,emailValue, passValue )
+      }else{
+        console.log("sign in",emailValue,passValue)
+        await login( emailValue, passValue)
+      }
+    }
+
     const SignState=()=>{
         setIsSign(!isSign)
     }
+
   return (
     <div className="login"> 
       <img src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production/consent/87b6a5c0-0104-4e96-a291-092c11350111/01938dc4-59b3-7bbc-b635-c4131030e85f/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" alt="" className='login-logo'/>
@@ -44,15 +60,15 @@ const Login = () => {
           </button>
         </form>
           <h3>OR</h3>
-          <button className='sign-in-code'>Use a sign-in code</button>
-          <span className='forget-pass'>Forget password?</span>
+          {isSign && (<button className='sign-in-code'>Use a sign-in code</button>)}
+          {isSign && (<span className='forget-pass'>Forget password?</span>)}
           <div className="form-help">
             <div className="remember">
               <input type="checkbox" />
               <label htmlFor="">Remember Me</label>
             </div>
             <div className="form-switch">
-              <p>New to Netflix? 
+              <p>{!isSign ? "New to Netflix?" : "Already registered please"} 
                  <span onClick={SignState}>{isSign ? " Sign up now." : "Sign in now."}</span>
               </p>
             </div>
