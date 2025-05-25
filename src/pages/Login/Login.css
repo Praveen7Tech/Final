@@ -1,0 +1,125 @@
+.login{
+    height: 100vh;
+    background-image:linear-gradient(#0000007e, #0000007e), url("https://assets.nflxext.com/ffe/siteui/vlv3/914ad279-199e-4095-9c10-2409dc9e5e1b/web/IN-en-20250519-TRIFECTA-perspective_8f1ca896-9e49-4a4e-90f0-22fc49650bd9_large.jpg");
+    padding: 20px 8%;
+    position: relative;
+}
+.login-logo{
+    width: 150px;
+}
+.login-form{
+    top: 5%;
+    left: 35%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 370px;
+    max-height: 630px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.login-form h1{
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 28px;
+}
+.login-form input{
+    width: 100%;
+    height: 43px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    margin: 9px 0;
+    border: 1px solid #656262;
+    outline: none;
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.login-form input::placeholder {
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 400;
+}
+.signin-btn{
+    width: 100%;
+    border: 0;
+    padding: 14px;
+    outline: 0;
+    background: #e50914;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.sign-in-code{
+    width: 100%;
+    border: 0;
+    padding: 14px;
+    outline: 0;
+    background: #4d4a4a;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.login-form h3{
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.forget-pass{
+    font-size: 12px;
+    font-weight: 300;
+    text-decoration: underline;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.form-help{
+    font-size: 12px;
+}
+.remember{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.remember input{
+   width: 20px;
+   font-weight: 300;
+}
+.form-switch{
+    color: #737373;
+}
+.form-switch span{
+    margin-left: 4px;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+}
+.form-switch span:hover{
+    text-decoration: underline;
+}
+.recaptcha{
+    color: #737373;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.errorMessage{
+    color: red;
+    font-size: 10px;
+    font-weight: 400;
+}
