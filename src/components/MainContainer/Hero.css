@@ -1,0 +1,99 @@
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2; /* Above the video */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 5%;
+}
+
+
+.overlay {
+  width: 40%;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 255px;
+}
+
+.MovieTitle {
+  font-size: 2.7rem;
+  margin-bottom: 1rem;
+}
+
+.overview {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.btn-container {
+  display: flex;
+  gap: 10px;
+}
+
+/* First button - solid red */
+.play-btn {
+  padding: 10px 47px;
+  background-color: white;
+  color: black;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Second button - transparent gradient */
+.more-info {
+  padding: 10px 30px;
+  background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  color: white;
+  font-size: 1.1rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.Trailer-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.Tariler {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.77vh; /* 16:9 aspect ratio based on viewport height */
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  border: none;
+  pointer-events: none;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Gradient overlay */
+.video-gradient-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* let clicks pass through */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 1; /* above video but below text */
+}
+
+
+
+
+
+

@@ -11,7 +11,6 @@ const useNowPlayingMovies = () => {
     );
         const json = await data.json();
         setApiData(json.results);
-        console.log("fetch-", json.results);
     };
 
     useEffect(() => {
