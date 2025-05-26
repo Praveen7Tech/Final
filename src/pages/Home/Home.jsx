@@ -2,6 +2,7 @@ import "./Home.css"
 import NavbarHome from "../../components/Navbar/NavbarHome"
 import HeroContainer from "../../components/MainContainer/HeroContainer"
 import SecondaryContainer from "../../components/SecondaryContainer/SecondaryContainer"
+import Footer from "../../components/Footer/Footer"
 
 const Home = () => {
 
@@ -10,6 +11,7 @@ const Home = () => {
       <NavbarHome/>
       <HeroContainer/>
       <SecondaryContainer/>
+      <Footer/>
     </div>
   )
 }

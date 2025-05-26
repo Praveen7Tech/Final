@@ -90,8 +90,17 @@
     text-decoration: none;
 }
 
-.login-btn{
-    text-decoration: none;
-    color: #fff;
-    font-size: 10px;
+.signup-btn-1{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 24px;
+  background-color: #e50914;
+  border-radius: 4px;
+  border: none;
+  font-size: 10px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
 }

@@ -14,7 +14,7 @@ const Navbar = () => {
                 <path d="M7 10l5 5 5-5H7z"/>
             </svg>
             </button>
-        <button className='signup-btn'><Link to="/login" className="login-btn">Sign up</Link></button>
+            <Link to="/login" className="signup-btn-1">Sign up</Link>
       </div>
     </div>
   )

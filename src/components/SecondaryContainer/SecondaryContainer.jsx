@@ -12,7 +12,10 @@ const SecondaryContainer = () => {
   const {upcomingMovies} = useUpComingMovies()
 
   if(apiData.length === 0 || !apiData) return
-  console.log("movies--",popularMovie)
+  if(popularMovie.length === 0 || !popularMovie) return
+  if(topRatedMovie.length === 0 || !topRatedMovie) return
+  if(upcomingMovies.length === 0 || !upcomingMovies) return;
+  
   return (
     <div className='secondary-portion'>
       <MovieList title={"Now Playing"} movies={apiData}/>
