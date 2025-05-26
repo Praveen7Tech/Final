@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import "./Guest.css"
 import Navbar from '../../components/Navbar/Navbar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { validateGuestEmail } from '../../utils/validateGuestEmail'
 
 const Guest = () => {
+  const [emailError, setEmailError] = useState(null)
+
+  const email = useRef()
+  const navigate = useNavigate()
+
+  const ValidateGuest = () => {
+  const emailValue = email.current.value;
+  const emailMessage = validateGuestEmail(emailValue); 
+
+    if (emailMessage) {
+      setEmailError(emailMessage); 
+    } else {
+      setEmailError(null); 
+      navigate("/login"); 
+    }
+ }
   return (
     <div className='home'>
       <Navbar />
@@ -13,11 +30,15 @@ const Guest = () => {
           <h4>Starts at ₹149. Cancel at any time.</h4>
           <p>Ready to watch? Enter your email to create or restart your membership.</p>
           <div className="getStarted">
-          <form onChange={(e) => {e.preventDefault()}}>  
-            <input type="text" placeholder='Email Address'/>
-            <button ><Link to="/login" className='signup-btn'>Get Started</Link></button>
+          <form onSubmit={(e) => {
+            e.preventDefault()
+             ValidateGuest()
+            }}>  
+            <input ref={email} type="text" placeholder='Email Address'/>
+            <button type='submit'>Get Started</button>
          </form>
           </div>
+          <span className='emailSpan'>{emailError}</span>
         </div>
         <div className="hero-bottom-desighn"></div>
       </div>
