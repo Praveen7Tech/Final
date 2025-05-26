@@ -1,7 +1,7 @@
 import "./Home.css"
 import NavbarHome from "../../components/Navbar/NavbarHome"
 import HeroContainer from "../../components/MainContainer/HeroContainer"
-import CardsContainer from "../../components/MainContainer/CardsContainer"
+import SecondaryContainer from "../../components/SecondaryContainer/SecondaryContainer"
 
 const Home = () => {
 
@@ -9,6 +9,7 @@ const Home = () => {
     <div className="home">
       <NavbarHome/>
       <HeroContainer/>
+      <SecondaryContainer/>
     </div>
   )
 }

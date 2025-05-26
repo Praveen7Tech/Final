@@ -6,7 +6,7 @@ import VideoTitle from './VideoTitle'
 
 const HeroContainer = () => {
     const {apiData} = useNowPlayingMovies()
-    if(!apiData || apiData.length === 0) return <h1>Loading...</h1>
+    if(!apiData || apiData.length === 0) return
     const mainMovie = apiData[0]
     const {original_title, overview, id} = mainMovie
   return (
