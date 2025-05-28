@@ -6,6 +6,7 @@ import Guest from './pages/Guest/Guest';
 import { ToastContainer } from 'react-toastify';
 import ProtectedRoute from './context/ProtectedRoute';
 import GuestRoute from './context/PublicRoute';
+import VideoPlayer from './pages/VideoPlayer/VideoPlayer';
 
 const App = () => {
   return (
@@ -27,6 +28,11 @@ const App = () => {
               <Home />
             </ProtectedRoute>
           } />
+          <Route path='/player/:id' element={
+            <ProtectedRoute>
+              <VideoPlayer/>
+            </ProtectedRoute>
+          }/>
       </Routes>
     </div>
   );

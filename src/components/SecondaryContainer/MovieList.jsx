@@ -10,7 +10,7 @@ const MovieList = ({title, movies}) => {
         <h2 className="movie-title">{title}</h2>
         <div className="movie-tray">
           {movies.map((movie) => (
-            <MovieCard key={movie.id} posterPath={movie.backdrop_path} movieTitle={movie.title}/>
+            <MovieCard key={movie.id} posterPath={movie.backdrop_path} movieTitle={movie.title} id={movie.id}/>
           ))}
         </div>
       </div>

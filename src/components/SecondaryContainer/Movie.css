@@ -26,3 +26,8 @@
     position: relative;
     margin-top: -110px;
 }
+
+.videoDiv{
+  text-decoration: none;
+  color: white;
+}

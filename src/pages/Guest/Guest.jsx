@@ -3,6 +3,9 @@ import "./Guest.css"
 import Navbar from '../../components/Navbar/Navbar'
 import { Link, useNavigate } from 'react-router-dom'
 import { validateGuestEmail } from '../../utils/validateGuestEmail'
+import TrendingSection from '../../components/Trending/TrendingSection'
+import FeaturesSection from '../../components/Features/FeaturesSection'
+import FooterG from '../../components/Footer/FooterGuest'
 
 const Guest = () => {
   const [emailError, setEmailError] = useState(null)
@@ -42,6 +45,9 @@ const Guest = () => {
         </div>
         <div className="hero-bottom-desighn"></div>
       </div>
+      <TrendingSection/>
+      <FeaturesSection/>
+      <FooterG/>
     </div>
   )
 }
