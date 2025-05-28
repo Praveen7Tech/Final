@@ -6,10 +6,17 @@ import bell_icon from "../../assets/bell_icon.svg"
 import profile_img from "../../assets/profile_img.png"
 import dropdown from "../../assets/caret_icon.svg"
 import useNavbarTheme from "../../Hooks/useNavbarTheme"
+import { useNavigate } from "react-router-dom"
 
 const NavbarHome = () => {
     const themeRef = useRef()
     useNavbarTheme(themeRef)
+    const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await Logout();
+    navigate("/", { replace: true }); 
+  };
 
   return (
     <div ref={themeRef} className='navbar'>
@@ -32,7 +39,7 @@ const NavbarHome = () => {
           <img src={profile_img} alt="" className="profile"/>
           <img src={dropdown} alt="" />
           <div className="dropdown">
-            <p onClick={()=>{Logout()}}>Sign Out from NETFLIX</p>
+            <p onClick={handleLogout}>Sign Out from NETFLIX</p>
           </div>
         </div>
       </div>

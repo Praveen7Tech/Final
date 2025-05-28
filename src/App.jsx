@@ -1,38 +1,35 @@
-import React, { useEffect } from 'react'
-import Home from './pages/Home/Home'
-import { Routes, Route, useNavigate } from 'react-router-dom'
-import Login from './pages/Login/Login'
-import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from './utils/firebase'
-import { ToastContainer, toast } from 'react-toastify';
-import Guest from './pages/Guest/Guest'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
+import Guest from './pages/Guest/Guest';
+import { ToastContainer } from 'react-toastify';
+import ProtectedRoute from './context/ProtectedRoute';
+import GuestRoute from './context/PublicRoute';
 
 const App = () => {
-
-  const navigate =useNavigate()
-
-  useEffect(()=>{
-    onAuthStateChanged(auth, async (user)=>{
-      if(user){
-        console.log('Logged in')
-        navigate("/home")
-      }else{
-        console.log("Logged out")
-        navigate("/")
-      }
-    })
-  },[])
-
   return (
     <div>
-      <ToastContainer theme='dark'/>
+      <ToastContainer theme="dark" />
       <Routes>
-        <Route path='/' element={<Guest/>}/>
-        <Route path='/home' element={<Home/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path="/" element={
+            <GuestRoute>
+              <Guest />
+            </GuestRoute>
+          }/>
+        <Route path="/login" element={
+            <GuestRoute>
+              <Login />
+            </GuestRoute>
+          }/>
+        <Route path="/home" element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          } />
       </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
