@@ -13,7 +13,7 @@
 .watchlist-title {
   font-size: 2.5rem;
   font-weight: bold;
-  margin: 0 0 10px 0;
+  margin: 100px 0 10px 0;
   color: #ffffff;
 }
 
@@ -134,4 +134,10 @@
   .item-poster {
     height: 180px;
   }
+}
+
+.watchlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    gap: 25px;
 }

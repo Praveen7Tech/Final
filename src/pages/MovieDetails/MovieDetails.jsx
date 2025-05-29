@@ -3,19 +3,35 @@ import "./MovieDetails.css"
 import { Play, PlusCircle } from "lucide-react"
 import useMovieDetails from "../../Hooks/useMovieDetails"
 import { POSTER_CDN } from "../../utils/constants"
+import { useWatchList } from "../../context/WatchListContext"
+import NavbarHome from "../../components/Navbar/NavbarHome"
+import Footer from "../../components/Footer/Footer"
 
 export default function MovieDetails() {
 
   const {id} = useParams()
   const {movieDetails} = useMovieDetails(id)
-  console.log("id--",id)
-  console.log("details--",movieDetails)
+  const {addToList, watchList, removeFromList} = useWatchList()
+
+  let alradyInList = watchList.some(item => item.id == id)
+  console.log("id true",alradyInList)
 
   if(!movieDetails) return <h2>Loading</h2>
-
   const {title, overview, poster_path, genres, release_date, spoken_languages} = movieDetails
 
+ 
+  const addToWatchList = ()=>{
+    console.log("button clicked")
+    addToList(movieDetails)
+  }
+  const removeFromWatchList =()=>{
+    removeFromList(id)
+    alradyInList = false
+  }
+
   return (
+    <>
+    <NavbarHome/>
     <div className="movie-details-container">
       {/* Main Movie Card */}
       <div className="movie-card">
@@ -35,14 +51,22 @@ export default function MovieDetails() {
           </div>
 
           <div className="movie-buttons">
+            
             <button className="btn btn-primary">
               <Play size={20} />
-              <Link to={`/player/${id}`}><span>Play Trailer</span></Link>
+              <Link className="play-trailer" to={`/player/${id}`}><span>Play Trailer</span></Link>
             </button>
-            <button className="btn btn-secondary">
+            {alradyInList ? 
+            <button onClick={removeFromWatchList} className="btn btn-secondary">
+              <PlusCircle size={20} />
+              <span>Remove From Watchlist</span>
+            </button>
+            :
+            <button onClick={addToWatchList} className="btn btn-secondary">
               <PlusCircle size={20} />
               <span>Add to Watchlist</span>
             </button>
+            }
           </div>
 
           <div className="movie-content">
@@ -98,5 +122,7 @@ export default function MovieDetails() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   )
 }

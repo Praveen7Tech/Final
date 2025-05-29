@@ -1,106 +1,45 @@
 
+
 import "./WatchList.css"
 import { X } from "lucide-react"
+import { useWatchList } from "../../context/WatchListContext"
+import NavbarHome from "../../components/Navbar/NavbarHome"
+import Footer from "../../components/Footer/Footer"
 
 export default function Watchlist() {
+
+  const {watchList,removeFromList} = useWatchList()
+ 
   return (
+    <>
+    <NavbarHome/>
     <div className="watchlist-container">
       <div className="watchlist-header">
         <h1 className="watchlist-title">My Watchlist</h1>
-        <p className="watchlist-subtitle">12 titles</p>
+        <p className="watchlist-subtitle">{watchList.length === 0 ? "Oops Your watch list is empty, please add your favourite movies to watch.." : watchList.length +" "+ "Movies"} </p>
       </div>
 
       <div className="watchlist-grid">
         {/* Watchlist Item 1 */}
-        <div className="watchlist-item">
-          <div className="item-poster">
-            <img src="/placeholder.svg?height=300&width=200" alt="Movie Poster" />
-            <button className="remove-btn">
-              <X size={16} />
-            </button>
+       {watchList.map(movie => (
+          <div key={movie.id} className="watchlist-item">
+            <div className="item-poster">
+              <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
+              <button onClick={()=> {removeFromList(movie.id)}} className="remove-btn">
+                <X size={16} />
+              </button>
+            </div>
+            <div className="item-info">
+              <h3 className="item-title">{movie.title}</h3>
+              <p className="item-meta">{movie.release_date} • {movie.genres?.map(g => g.name).join(", ")}</p>
+              <p className="item-description">{movie.overview}</p>
+            </div>
           </div>
-          <div className="item-info">
-            <h3 className="item-title">The Diplomat</h3>
-            <p className="item-meta">2025 • Drama</p>
-            <p className="item-description">An Indian diplomat maneuvers political and moral tensions...</p>
-          </div>
-        </div>
+        ))}
 
-        {/* Watchlist Item 2 */}
-        <div className="watchlist-item">
-          <div className="item-poster">
-            <img src="/placeholder.svg?height=300&width=200" alt="Movie Poster" />
-            <button className="remove-btn">
-              <X size={16} />
-            </button>
-          </div>
-          <div className="item-info">
-            <h3 className="item-title">Stranger Things</h3>
-            <p className="item-meta">2024 • Sci-Fi</p>
-            <p className="item-description">A group of kids uncover supernatural mysteries in their town...</p>
-          </div>
-        </div>
-
-        {/* Watchlist Item 3 */}
-        <div className="watchlist-item">
-          <div className="item-poster">
-            <img src="/placeholder.svg?height=300&width=200" alt="Movie Poster" />
-            <button className="remove-btn">
-              <X size={16} />
-            </button>
-          </div>
-          <div className="item-info">
-            <h3 className="item-title">Money Heist</h3>
-            <p className="item-meta">2023 • Crime</p>
-            <p className="item-description">A criminal mastermind plans the perfect heist...</p>
-          </div>
-        </div>
-
-        {/* Watchlist Item 4 */}
-        <div className="watchlist-item">
-          <div className="item-poster">
-            <img src="/placeholder.svg?height=300&width=200" alt="Movie Poster" />
-            <button className="remove-btn">
-              <X size={16} />
-            </button>
-          </div>
-          <div className="item-info">
-            <h3 className="item-title">The Crown</h3>
-            <p className="item-meta">2024 • Biography</p>
-            <p className="item-description">The story of Queen Elizabeth II and the British Royal Family...</p>
-          </div>
-        </div>
-
-        {/* Watchlist Item 5 */}
-        <div className="watchlist-item">
-          <div className="item-poster">
-            <img src="/placeholder.svg?height=300&width=200" alt="Movie Poster" />
-            <button className="remove-btn">
-              <X size={16} />
-            </button>
-          </div>
-          <div className="item-info">
-            <h3 className="item-title">Dark</h3>
-            <p className="item-meta">2023 • Mystery</p>
-            <p className="item-description">Time travel and family secrets in a German town...</p>
-          </div>
-        </div>
-
-        {/* Watchlist Item 6 */}
-        <div className="watchlist-item">
-          <div className="item-poster">
-            <img src="/placeholder.svg?height=300&width=200" alt="Movie Poster" />
-            <button className="remove-btn">
-              <X size={16} />
-            </button>
-          </div>
-          <div className="item-info">
-            <h3 className="item-title">Bridgerton</h3>
-            <p className="item-meta">2024 • Romance</p>
-            <p className="item-description">Romance and scandal in Regency-era London...</p>
-          </div>
-        </div>
       </div>
     </div>
+    <Footer/>
+    </>
   )
 }

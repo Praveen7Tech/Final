@@ -25,7 +25,7 @@ const VideoPlayer = () => {
     },[])
   return (
     <div className="player">
-      <img src={back_arrow} alt="" onClick={()=> {navigate(-2)}}/>
+      <img src={back_arrow} alt="" onClick={()=> {navigate(-1)}}/>
       <iframe width="90%" height="90%" src={`https://www.youtube.com/embed/${playerData.key}`}
       title="trailer" frameborder="0" allowFullScreen ></iframe>
       <div className="player-info">

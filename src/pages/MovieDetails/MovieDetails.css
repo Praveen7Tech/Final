@@ -210,3 +210,8 @@
     width: 100%;
   }
 }
+
+.play-trailer{
+  text-decoration: none;
+  color: white;
+}
