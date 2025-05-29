@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 const MovieCard = ({posterPath,movieTitle, id}) => {
   return (
-    <Link className='videoDiv' to={`/player/${id}`}>
-    <div className='movie-card'>
+    <Link className='videoDiv' to={`/movieDetails/${id}`}>
+    <div className='card'>
       <img src={POSTER_CDN+posterPath} alt="poster img" />
       <p>{movieTitle}</p>
     </div>

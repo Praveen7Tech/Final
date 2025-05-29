@@ -7,6 +7,8 @@ import { ToastContainer } from 'react-toastify';
 import ProtectedRoute from './context/ProtectedRoute';
 import GuestRoute from './context/PublicRoute';
 import VideoPlayer from './pages/VideoPlayer/VideoPlayer';
+import MovieDetails from './pages/MovieDetails/MovieDetails';
+import Watchlist from './pages/WatchList/WatchList';
 
 const App = () => {
   return (
@@ -31,6 +33,16 @@ const App = () => {
           <Route path='/player/:id' element={
             <ProtectedRoute>
               <VideoPlayer/>
+            </ProtectedRoute>
+          }/>
+          <Route path='/movieDetails/:id' element={
+            <ProtectedRoute>
+              <MovieDetails/>
+            </ProtectedRoute>
+          }/>
+          <Route path='/watchList' element={
+            <ProtectedRoute>
+              <Watchlist/>
             </ProtectedRoute>
           }/>
       </Routes>

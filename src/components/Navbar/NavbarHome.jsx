@@ -6,7 +6,7 @@ import bell_icon from "../../assets/bell_icon.svg"
 import profile_img from "../../assets/profile_img.png"
 import dropdown from "../../assets/caret_icon.svg"
 import useNavbarTheme from "../../Hooks/useNavbarTheme"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const NavbarHome = () => {
     const themeRef = useRef()
@@ -27,7 +27,7 @@ const NavbarHome = () => {
           <li>Tv Shows</li>
           <li>Movies</li>
           <li>New & Popular</li>
-          <li>My List</li>
+          <li><Link to={"/watchList"}>My List</Link></li>
           <li>Browse by language</li>
         </ul>
       </div>
