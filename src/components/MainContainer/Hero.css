@@ -11,7 +11,6 @@
   padding-left: 5%;
 }
 
-
 .overlay {
   width: 40%;
   padding: 20px;
@@ -50,7 +49,7 @@
 /* Second button - transparent gradient */
 .more-info {
   padding: 10px 30px;
-  background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
   color: white;
   font-size: 1.1rem;
   border: 1px solid white;
@@ -61,7 +60,8 @@
 
 .Trailer-container {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -84,7 +84,8 @@
 /* Gradient overlay */
 .video-gradient-overlay {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none; /* let clicks pass through */
@@ -96,4 +97,308 @@
   position: relative;
   height: 100vh; /* or something similar */
   overflow: hidden;
+}
+
+/* Responsive Styles */
+
+/* Large Desktop */
+@media (max-width: 1400px) {
+  .overlay {
+    width: 45%;
+    margin-top: 220px;
+  }
+
+  .MovieTitle {
+    font-size: 2.5rem;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .overlay {
+    width: 50%;
+    margin-top: 200px;
+    padding: 18px;
+  }
+
+  .MovieTitle {
+    font-size: 2.3rem;
+  }
+
+  .overview {
+    font-size: 0.95rem;
+  }
+
+  .play-btn {
+    padding: 9px 40px;
+    font-size: 1.1rem;
+  }
+
+  .more-info {
+    padding: 9px 25px;
+    font-size: 1rem;
+  }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+  .video-container {
+    padding-left: 4%;
+  }
+
+  .overlay {
+    width: 55%;
+    margin-top: 180px;
+    padding: 16px;
+  }
+
+  .MovieTitle {
+    font-size: 2.1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .overview {
+    font-size: 0.9rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .play-btn {
+    padding: 8px 35px;
+    font-size: 1rem;
+  }
+
+  .more-info {
+    padding: 8px 22px;
+    font-size: 0.95rem;
+  }
+
+  /* Adjust video for tablet */
+  .Tariler {
+    width: 180vh;
+  }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+  .video-container {
+    padding-left: 3%;
+  }
+
+  .overlay {
+    width: 65%;
+    margin-top: 150px;
+    padding: 14px;
+  }
+
+  .MovieTitle {
+    font-size: 1.9rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .overview {
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .btn-container {
+    gap: 8px;
+  }
+
+  .play-btn {
+    padding: 7px 30px;
+    font-size: 0.95rem;
+  }
+
+  .more-info {
+    padding: 7px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Enhanced gradient for smaller screens */
+  .video-gradient-overlay {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3));
+  }
+}
+
+/* Large Mobile */
+@media (max-width: 640px) {
+  .video-container {
+    padding-left: 2%;
+    align-items: center;
+  }
+
+  .overlay {
+    width: 75%;
+    margin-top: 100px;
+    padding: 12px;
+  }
+
+  .MovieTitle {
+    font-size: 1.7rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .overview {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .btn-container {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .play-btn {
+    padding: 6px 25px;
+    font-size: 0.9rem;
+  }
+
+  .more-info {
+    padding: 6px 18px;
+    font-size: 0.85rem;
+  }
+
+  /* Adjust video positioning for mobile */
+  .Tariler {
+    width: 200vh;
+    height: 100vh;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  .video-container {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  .overlay {
+    width: 85%;
+    margin-top: 80px;
+    padding: 10px;
+  }
+
+  .MovieTitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .overview {
+    font-size: 0.75rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .btn-container {
+    gap: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .play-btn,
+  .more-info {
+    width: 100%;
+    max-width: 200px;
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  /* Strong gradient for mobile readability */
+  .video-gradient-overlay {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+  .overlay {
+    width: 90%;
+    margin-top: 60px;
+    padding: 8px;
+  }
+
+  .MovieTitle {
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .overview {
+    font-size: 0.7rem;
+    margin-bottom: 0.7rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .play-btn,
+  .more-info {
+    padding: 6px 15px;
+    font-size: 0.8rem;
+    max-width: 180px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-wrapper {
+    height: 100vh;
+  }
+
+  .overlay {
+    margin-top: 60px;
+    width: 50%;
+  }
+
+  .MovieTitle {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .overview {
+    font-size: 0.7rem;
+    margin-bottom: 0.6rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .btn-container {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .play-btn,
+  .more-info {
+    width: auto;
+    padding: 5px 15px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 320px) {
+  .overlay {
+    width: 95%;
+    margin-top: 50px;
+    padding: 6px;
+  }
+
+  .MovieTitle {
+    font-size: 1.2rem;
+  }
+
+  .overview {
+    font-size: 0.65rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .play-btn,
+  .more-info {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
 }

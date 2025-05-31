@@ -16,7 +16,7 @@ export default function MovieDetails() {
   let alradyInList = watchList.some(item => item.id == id)
   console.log("id true",alradyInList)
 
-  if(!movieDetails) return <h2>Loading</h2>
+  if(!movieDetails) return 
   const {title, overview, poster_path, genres, release_date, spoken_languages} = movieDetails
 
  
@@ -78,7 +78,7 @@ export default function MovieDetails() {
 
             <div className="movie-starring">
               <p>
-                <strong>Starring:</strong> John Abraham, Sadia Khateeb, and Revathy
+                
               </p>
             </div>
           </div>
@@ -112,13 +112,7 @@ export default function MovieDetails() {
           </div>
 
           {/* Cast Card */}
-          <div className="detail-card">
-            <h3>Cast</h3>
-            <p>
-              John Abraham, Sadia Khateeb, Revathy, Kumud Mishra, Farheen Prabhakar, Sharib Hashmi, Amitoj Mann, Vishal
-              Vashishtha, Vidhatri Bandi, and Ashwath Bhatt
-            </p>
-          </div>
+         
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { auth, db } from "../utils/firebase";  // adjust path to match your firebase setup
+import { auth, db } from "../utils/firebase";  
 import { onAuthStateChanged } from "firebase/auth";
 
 const WatchListContext = createContext();

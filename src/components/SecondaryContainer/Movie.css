@@ -1,35 +1,307 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-
-.card img{
-    width: 280px;
+/* Base styles */
+.card {
+  transition: transform 0.3s ease;
+  position: relative;
 }
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 280px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.card p {
+  margin-top: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
+}
+
 .movie-tray {
   display: flex;
   gap: 9px;
   overflow-x: scroll;
   padding: 20px 50px;
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  -ms-overflow-style: none; /* IE and Edge */
+  scroll-behavior: smooth;
 }
 
 .movie-tray::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
 
-.movie-title{
-    font-weight: 600;
-    padding: 8px 50px;
-    font-family: "poppins";
+.movie-title {
+  font-weight: 600;
+  padding: 8px 50px;
+  font-family: "Poppins", sans-serif;
 }
 
-.secondary-portion{
-    position: relative;
-    margin-top: -110px;
+.secondary-portion {
+  position: relative;
+  margin-top: -110px;
+  z-index: 2;
 }
 
-.videoDiv{
+.videoDiv {
   text-decoration: none;
   color: white;
 }
 
+.now-playing {
+  margin-bottom: 30px;
+}
+
+/* Responsive styles */
+
+/* Large Desktop */
+@media (max-width: 1440px) {
+  .card img {
+    width: 250px;
+  }
+
+  .card p {
+    max-width: 250px;
+  }
+
+  .movie-tray {
+    padding: 18px 45px;
+  }
+
+  .movie-title {
+    padding: 8px 45px;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .card img {
+    width: 220px;
+  }
+
+  .card p {
+    max-width: 220px;
+    font-size: 13px;
+  }
+
+  .movie-tray {
+    padding: 16px 40px;
+    gap: 8px;
+  }
+
+  .movie-title {
+    padding: 8px 40px;
+    font-size: 1.4rem;
+  }
+
+  .secondary-portion {
+    margin-top: -100px;
+  }
+}
+
+/* Small Desktop / Large Tablet */
+@media (max-width: 1024px) {
+  .card img {
+    width: 190px;
+  }
+
+  .card p {
+    max-width: 190px;
+    font-size: 12px;
+  }
+
+  .movie-tray {
+    padding: 14px 35px;
+    gap: 7px;
+  }
+
+  .movie-title {
+    padding: 8px 35px;
+    font-size: 1.3rem;
+  }
+
+  .secondary-portion {
+    margin-top: -90px;
+  }
+
+  .now-playing {
+    margin-bottom: 25px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .card img {
+    width: 160px;
+  }
+
+  .card p {
+    max-width: 160px;
+    font-size: 11px;
+  }
+
+  .movie-tray {
+    padding: 12px 25px;
+    gap: 6px;
+  }
+
+  .movie-title {
+    padding: 6px 25px;
+    font-size: 1.2rem;
+  }
+
+  .secondary-portion {
+    margin-top: -80px;
+  }
+
+  .now-playing {
+    margin-bottom: 20px;
+  }
+}
+
+/* Large Mobile */
+@media (max-width: 640px) {
+  .card img {
+    width: 140px;
+  }
+
+  .card p {
+    max-width: 140px;
+    font-size: 10px;
+  }
+
+  .movie-tray {
+    padding: 10px 20px;
+    gap: 5px;
+  }
+
+  .movie-title {
+    padding: 5px 20px;
+    font-size: 1.1rem;
+  }
+
+  .secondary-portion {
+    margin-top: -70px;
+  }
+
+  .now-playing {
+    margin-bottom: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .card img {
+    width: 120px;
+  }
+
+  .card p {
+    max-width: 120px;
+    font-size: 9px;
+  }
+
+  .movie-tray {
+    padding: 8px 15px;
+    gap: 4px;
+  }
+
+  .movie-title {
+    padding: 4px 15px;
+    font-size: 1rem;
+  }
+
+  .secondary-portion {
+    margin-top: -60px;
+  }
+
+  .now-playing {
+    margin-bottom: 12px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+  .card img {
+    width: 100px;
+  }
+
+  .card p {
+    max-width: 100px;
+    font-size: 8px;
+  }
+
+  .movie-tray {
+    padding: 6px 10px;
+    gap: 3px;
+  }
+
+  .movie-title {
+    padding: 3px 10px;
+    font-size: 0.9rem;
+  }
+
+  .secondary-portion {
+    margin-top: -50px;
+  }
+
+  .now-playing {
+    margin-bottom: 10px;
+  }
+}
+
+/* Landscape Mode */
+@media (max-width: 768px) and (orientation: landscape) {
+  .secondary-portion {
+    margin-top: -60px;
+  }
+
+  .card img {
+    width: 150px;
+  }
+
+  .card p {
+    max-width: 150px;
+  }
+
+  .movie-tray {
+    padding: 10px 20px;
+  }
+
+  .movie-title {
+    padding: 5px 20px;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 320px) {
+  .card img {
+    width: 90px;
+  }
+
+  .card p {
+    max-width: 90px;
+    font-size: 7px;
+  }
+
+  .movie-tray {
+    padding: 5px 8px;
+    gap: 2px;
+  }
+
+  .movie-title {
+    padding: 2px 8px;
+    font-size: 0.8rem;
+  }
+
+  .secondary-portion {
+    margin-top: -40px;
+  }
+}
