@@ -23,4 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-.constants.jsx
+# ApI and credentials
+
+src/utils/firebase.js
+src/utils/constraints.jsx
