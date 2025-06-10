@@ -4,8 +4,8 @@ export const validateFormData = (name, email, password) => {
   const nameValid = /^[A-Za-z\s\-.']+$/.test(name) 
 
   return {
-    emailMessage: !emailValid ? "Email Not Valid" : null,
-    paswordMessage: !passwordValid ? "Password not valid..." : null,
+    emailMessage: !emailValid ? "Email not valid" : null,
+    paswordMessage: !passwordValid ? "Password not valid" : null,
     nameMessage: !nameValid ? "Name not valid" : null,
   };
 };

@@ -26,4 +26,4 @@ dist-ssr
 # ApI and credentials
 
 src/utils/firebase.js
-src/utils/constraints.jsx
+src/utils/constants.jsx

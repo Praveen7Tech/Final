@@ -4,11 +4,14 @@ import { validateFormData } from "../../utils/validateFormData"
 import { login, SignUp } from "../../utils/firebase"
 import Footer from "../../components/Footer/Footer"
 
+// import { fireBaseError } from "../../utils/firebase"
+
 const Login = () => {
     const [isSign, setIsSign] = useState(true)
     const [emailError, setEmailError] = useState(null)
     const [paswordError, setPasswordError] =useState(null)
     const [nameError, setNameError] = useState(null)
+    const [firBaseError, setFireBaseError] = useState(null)
 
     const name =useRef(null)
     const email = useRef(null)
@@ -17,6 +20,7 @@ const Login = () => {
         const nameValue = !isSign && name.current ? name.current.value : null
         const emailValue = email.current.value
         const passValue = password.current.value
+        setFireBaseError(null);
         const {nameMessage, emailMessage, paswordMessage} = validateFormData(nameValue,emailValue,passValue)
         setEmailError(emailMessage)
         setPasswordError(paswordMessage)
@@ -28,13 +32,13 @@ const Login = () => {
     }
 
     const userAuth = async(nameValue,emailValue, passValue)=>{
+      let firebaseErrorMessage;
       if(!isSign){
-        console.log("sign up",nameValue,emailValue,passValue)
-        await SignUp(nameValue,emailValue, passValue )
+       firebaseErrorMessage = await SignUp(nameValue,emailValue, passValue )
       }else{
-        console.log("sign in",emailValue,passValue)
-        await login( emailValue, passValue)
+       firebaseErrorMessage = await login( emailValue, passValue)
       }
+      setFireBaseError(firebaseErrorMessage)
     }
 
     const SignState=()=>{
@@ -52,10 +56,13 @@ const Login = () => {
           {!isSign && (<span className='errorMessage'>{nameError}</span>)}
           
           <input ref={email} type="email" placeholder='Enter Email'/>
-          <span className='errorMessage'>{emailError}</span>
+          <span className='errorMessage'>{emailError}</span> 
 
           <input ref={password} type="password" placeholder='Enter password'/>
           <span className='errorMessage'>{paswordError}</span>
+          {!emailError && !paswordError &&
+          <span className='errorMessage'>{firBaseError}</span>
+          }
 
           <button className='signin-btn' onClick={validateForm}>
               {isSign ? "Sign In" : "Sign Up"}
