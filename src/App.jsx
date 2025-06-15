@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
-import Guest from './pages/Guest/Guest';
-import { ToastContainer } from 'react-toastify';
 import ProtectedRoute from './context/ProtectedRoute';
 import GuestRoute from './context/PublicRoute';
-import VideoPlayer from './pages/VideoPlayer/VideoPlayer';
-import MovieDetails from './pages/MovieDetails/MovieDetails';
-import Watchlist from './pages/WatchList/WatchList';
+import LoadingPage from './components/LoadingPage/LoadingPage';
+
+const Guest = React.lazy(()=> import("./pages/Guest/Guest"))
+const Login = React.lazy(()=> import("./pages/Login/Login"))
+const Home = React.lazy(()=> import("./pages/Home/Home"))
+const VideoPlayer = React.lazy(()=> import("./pages/VideoPlayer/VideoPlayer"))
+const MovieDetails = React.lazy(()=> import("./pages/MovieDetails/MovieDetails"))
+const WatchList = React.lazy(()=> import("./pages/WatchList/WatchList"))
 
 const App = () => {
   return (
     <div>
-      <ToastContainer theme="dark" />
+      <Suspense fallback={<LoadingPage/>}>
       <Routes>
         <Route path="/" element={
             <GuestRoute>
@@ -42,10 +43,11 @@ const App = () => {
           }/>
           <Route path='/watchList' element={
             <ProtectedRoute>
-              <Watchlist/>
+              <WatchList/>
             </ProtectedRoute>
           }/>
       </Routes>
+      </Suspense>
     </div>
   );
 };
